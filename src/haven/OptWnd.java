@@ -1075,6 +1075,10 @@ public class OptWnd extends WindowX {
     
 	y += STEP;
 	panel.add(new CFGBox("Show queued path on minimap", CFG.MMAP_SHOW_PATH), x, y);
+	
+	//custom options
+	y += STEP;
+	panel.add(new CFGBox("Always show long tooltips", CFG.UI_ALWAYS_SHOW_LONG_TOOLTIPS), x, y);
     
 	//second row
 	my = Math.max(my, y);
