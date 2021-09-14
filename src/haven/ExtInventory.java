@@ -381,6 +381,22 @@ public class ExtInventory extends Widget {
 	    if(type.quality == null) {
 		quality = items.stream().map(ExtInventory::quality).filter(Objects::nonNull).reduce(0.0, Double::sum)
 		    / items.stream().map(ExtInventory::quality).filter(Objects::nonNull).count();
+	    
+	    // Grouping
+	    if(g == Grouping.Curios){
+		Curiosity curioInfo = this.sample.curio.get();
+		if(curioInfo != null) {
+		    this.text[0] = fnd.render(String.format("mw/lph: %s/%s - %s", curioInfo.mw, curioInfo.lph(curioInfo.lph), type.name)).tex();
+		}else{
+		    this.text[0] = fnd.render(String.format("%s", type.name)).tex();
+		}
+	    } else if (g == Grouping.CuriosLPH) {
+		Curiosity curioInfo = this.sample.curio.get();
+		if(curioInfo != null) {
+		    this.text[0] = fnd.render(String.format("lph/mw: %s/%s - %s", curioInfo.lph(curioInfo.lph), curioInfo.mw, type.name)).tex();
+		}else{
+		    this.text[0] = fnd.render(String.format("%s", type.name)).tex();
+		}
 	    } else {
 		quality = type.quality;
 	    }
@@ -628,7 +644,9 @@ public class ExtInventory extends Widget {
 	Q("Quality"),
 	Q1("Quality 1"),
 	Q5("Quality 5"),
-	Q10("Quality 10");
+	Q10("Quality 10"),
+	Curios("mw/lph"),
+	CuriosLPH("lph/mw");
 	
 	private final String name;
 	

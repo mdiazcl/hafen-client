@@ -35,7 +35,7 @@ import java.util.*;
 import java.lang.reflect.*;
 
 public class MainFrame extends java.awt.Frame implements Console.Directory {
-    private static final String TITLE = String.format("Haven and Hearth modified by Ender (v%s)", Config.version);
+    private static final String TITLE = String.format("Haven and Hearth modified by Ender and Osobuco (v%s)", Config.version);
     UIPanel p;
     private final ThreadGroup g;
     private Thread mt;

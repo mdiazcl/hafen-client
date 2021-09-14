@@ -1,6 +1,9 @@
 /.classpath
 /.project
 /build
+.idea
+lib/hafen.jar
+lib/hafen-res.jar
 *~
 out
 /resources/compiled
